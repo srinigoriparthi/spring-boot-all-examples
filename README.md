@@ -23,11 +23,10 @@ https://localhost:9095/swagger-ui.html#/person-controller
 
 Useful Resources:
 ==================
-Spring Boot Data JPA Hibernate with Swagger 2 Example:
+Spring Boot Data JPA Hibernate with Swagger 2 Example:  
 https://dzone.com/articles/spring-boot-2-restful-api-documentation-with-swagg  
   
-
-How to Create SSL Certificate and Converting Application into HTTPS:
+How to Create SSL Certificate and Converting Application into HTTPS:  
 https://howtodoinjava.com/spring-boot/spring-boot-ssl-https-example/  
   
 JKS Certificate Creation Steps:
