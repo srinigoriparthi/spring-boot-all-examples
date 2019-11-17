@@ -28,11 +28,13 @@ public class PersonServiceImpl implements  PersonService {
 
     @Override
     public void createPerson(Person person) {
-       /* Iterable<Person> persLstResult = personRepository.findAll();
+        Iterable<Person> persLstResult = personRepository.findAll();
         List<Person> personList = new ArrayList<>();
         persLstResult.forEach(personList::add);
+        LOGGER.info("Total size of existing persons list:{]",personList.size());
         String id = String.valueOf(personList.size()+1);
-        person.setId(id);*/
+        person.setId(id);
+        person.setCreatdt(new java.util.Date());
         personRepository.save(person);
     }
 

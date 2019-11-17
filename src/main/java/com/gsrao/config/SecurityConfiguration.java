@@ -1,29 +1,44 @@
 package com.gsrao.config;
 
-import javax.sql.DataSource;
-
+import com.gsrao.model.MyUserDetails;
+import com.gsrao.service.MyUserDetailsService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-	
-	@Override
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(SecurityConfiguration.class);
+
+	// THE BELOW CODE FOR IN MEMORTY AUTHENTICATON
+/*	@Override
 	public void configure(AuthenticationManagerBuilder authenticationMgr) throws Exception {
 		authenticationMgr.inMemoryAuthentication()
 				.withUser("blah").password("blah").roles("USER")
 				.and()
 				.withUser("foo").password("foo").roles("ADMIN")
 				;
+	}*/
+
+	@Autowired
+	MyUserDetailsService  userDetailsService;
+
+	// THE BELOW CODE FOR IN JPA-DB AUTHENTICATION
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		LOGGER.info("Hitting Authentication invoking User JPA DB Service !!");
+		auth.userDetailsService(userDetailsService);
 	}
 
 	@Bean
@@ -33,10 +48,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
+		LOGGER.info("Hitting Authorization !!");
 		http.csrf().disable();
 		http.authorizeRequests()
+				.antMatchers(("/api/v1/delperson")).hasRole("ADMIN")
 				.antMatchers(("/api/v1/getpersons")).hasRole("ADMIN")
-				.antMatchers(("/api/v1/getperson/*")).hasRole("USER")
+				.antMatchers(("/api/v1/getperson/*")).hasAnyRole("USER","ADMIN")
 				.antMatchers(("/")).permitAll()
 				.and().formLogin();
 	}
