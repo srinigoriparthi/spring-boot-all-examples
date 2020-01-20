@@ -28,6 +28,14 @@ https://dzone.com/articles/spring-boot-2-restful-api-documentation-with-swagg
   
 How to Create SSL Certificate and Converting Application into HTTPS:  
 https://howtodoinjava.com/spring-boot/spring-boot-ssl-https-example/  
+
+**CRUD Operations in Java Web Applications using jTable and jQuery Plugins**  
+- https://www.programming-free.com/2013/08/ajax-based-crud-operations-in-java-web.html  
+- http://www.jtable.org/Demo/PagingAndSorting  
+- https://www.programming-free.com/2013/07/setup-load-data-jtable-jsp-servlet.html  
+- http://www.jtable.org/  
+
+
   
 JKS Certificate Creation Steps:
 ------------------------------
@@ -36,3 +44,5 @@ JKS Certificate Creation Steps:
 keytool -genkey -alias selfsigned_localhost_sslserver -keyalg RSA -keysize 2048 -validity 700 -keypass changeit -storepass changeit -keystore ssl-server.jks      
 3. Type the below command to see the created certificate  
 keytool -list -keystore ssl-server.jks  
+
+

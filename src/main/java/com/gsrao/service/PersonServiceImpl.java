@@ -27,15 +27,21 @@ public class PersonServiceImpl implements  PersonService {
     PersonRepository personRepository;
 
     @Override
-    public void createPerson(Person person) {
-        Iterable<Person> persLstResult = personRepository.findAll();
-        List<Person> personList = new ArrayList<>();
-        persLstResult.forEach(personList::add);
-        LOGGER.info("Total size of existing persons list:{]",personList.size());
-        String id = String.valueOf(personList.size()+1);
+    public Person createPerson(Person person) {
+        long totalCount = personRepository.count();
+        LOGGER.info("Total Count of Existing Persons:{}",totalCount);
+        String id = String.valueOf(totalCount+1);
         person.setId(id);
-        person.setCreatdt(new java.util.Date());
         personRepository.save(person);
+        Optional<Person> savedPerson = personRepository.findById(id);
+        if(savedPerson.isPresent()){
+            LOGGER.info("Person saved successfully with the Id:{}",savedPerson.get().getId());
+            return savedPerson.get();
+        }else{
+            LOGGER.warn("Person saving is Failed with the Id:{}",person.getId());
+            return savedPerson.get();
+        }
+
     }
 
     @Override
@@ -49,7 +55,7 @@ public class PersonServiceImpl implements  PersonService {
     }
 
     @Override
-    public void updatePerson(Person person, String id) {
+    public String updatePerson(Person person, String id) {
         Optional<Person> result = personRepository.findById(String.valueOf(id));
 
         if(result.isPresent()) {
@@ -60,7 +66,18 @@ public class PersonServiceImpl implements  PersonService {
             exisPerson.setEmail(person.getEmail());
             exisPerson.setPhone(person.getPhone());
             exisPerson.setAddress(person.getAddress());
+            exisPerson.setCreatdttime(new Date());
             personRepository.save(exisPerson);
+            Optional<Person> updatedPerson = personRepository.findById(String.valueOf(id));
+            if(updatedPerson.isPresent()){
+                LOGGER.info("Person Updated successfully with the Id:{}",updatedPerson.get().getId());
+                return "Person Updated successfully with the Id:"+updatedPerson.get().getId();
+            }else{
+                LOGGER.warn("Person Updation got Failed with the Id:{}",person.getId());
+                return "Person Updation got Failed with the Id:"+id;
+            }
+        }else{
+            return "Person not Found:"+id;
         }
     }
 

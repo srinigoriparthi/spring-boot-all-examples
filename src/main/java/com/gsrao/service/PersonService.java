@@ -9,9 +9,9 @@ import java.util.List;
  */
 public interface PersonService {
 
-    public abstract void createPerson(Person person);
+    public abstract Person createPerson(Person person);
     public abstract Person getPerson(String id);
-    public abstract void updatePerson(Person person, String id);
+    public abstract String updatePerson(Person person, String id);
     public abstract List<Person> getPersons();
     public abstract void deletePerson(String id);
 }

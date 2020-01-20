@@ -51,9 +51,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		LOGGER.info("Hitting Authorization !!");
 		http.csrf().disable();
 		http.authorizeRequests()
-				.antMatchers(("/api/v1/delperson")).hasRole("ADMIN")
-				.antMatchers(("/api/v1/getpersons")).hasRole("ADMIN")
-				.antMatchers(("/api/v1/getperson/*")).hasAnyRole("USER","ADMIN")
+				.antMatchers(("/delperson")).hasRole("ADMIN")
+//				.antMatchers(("/getpersons")).hasRole("ADMIN")
+//				.antMatchers(("/getperson/*")).hasAnyRole("USER","ADMIN")
 				.antMatchers(("/")).permitAll()
 				.and().formLogin();
 	}
