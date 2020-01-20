@@ -1,5 +1,21 @@
 # Getting Started
 
+Information about this Project:
+------------------------------
+1. How to Invoke  
+https://localhost:9095/persons/1  
+2. Swagger UI  
+https://localhost:9095/swagger-ui.html#/person-controller
+
+JKS Certificate Creation Steps:
+------------------------------
+1. Open Command prompt.  
+2. Type the below command to create the certificate.  
+keytool -genkey -alias selfsigned_localhost_sslserver -keyalg RSA -keysize 2048 -validity 700 -keypass changeit -storepass changeit -keystore ssl-server.jks      
+3. Type the below command to see the created certificate  
+keytool -list -keystore ssl-server.jks  
+
+
 ### Reference Documentation
 For further reference, please consider the following sections:
 
@@ -14,15 +30,8 @@ The following guides illustrate how to use some features concretely:
 * [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
 * [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
 
-Information about this Project:
-===============================
-1. How to Invoke  
-https://localhost:9095/persons/1  
-2. Swagger UI  
-https://localhost:9095/swagger-ui.html#/person-controller
-
 Useful Resources:
-==================
+-----------------
 Spring Boot Data JPA Hibernate with Swagger 2 Example:  
 https://dzone.com/articles/spring-boot-2-restful-api-documentation-with-swagg  
   
@@ -37,12 +46,6 @@ https://howtodoinjava.com/spring-boot/spring-boot-ssl-https-example/
 
 
   
-JKS Certificate Creation Steps:
-------------------------------
-1. Open Command prompt.  
-2. Type the below command to create the certificate.  
-keytool -genkey -alias selfsigned_localhost_sslserver -keyalg RSA -keysize 2048 -validity 700 -keypass changeit -storepass changeit -keystore ssl-server.jks      
-3. Type the below command to see the created certificate  
-keytool -list -keystore ssl-server.jks  
+
 
 
