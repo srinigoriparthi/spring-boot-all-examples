@@ -1,6 +1,5 @@
 package com.gsrao.service;
 
-import com.datastax.driver.core.LocalDate;
 import com.gsrao.dao.PersonRepository;
 import com.gsrao.model.Person;
 import lombok.extern.slf4j.Slf4j;
@@ -9,9 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
