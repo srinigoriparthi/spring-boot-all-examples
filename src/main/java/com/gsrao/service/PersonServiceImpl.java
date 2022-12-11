@@ -13,6 +13,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * PersonServiceImpl is the implementation of PersonService interface.
+ * It provides methods to create, retrieve, update, and delete Person entities.
+ * It uses PersonRepository to interact with the database.
+ */
 @Service
 @Slf4j
 public class PersonServiceImpl implements  PersonService {
