@@ -3,10 +3,10 @@
     <module name="spring-boot-all-examples" />
     <option name="ALTERNATIVE_JRE_PATH" value="D:\DEVWORK\DEVSOFTS\Java\jdk1.8.0_171\jre" />
     <option name="PACKAGE_NAME" value="com.gsrao.service" />
-    <option name="MAIN_CLASS_NAME" value="com.gsrao.service.PersonServiceImplTest" />
+    <option name="MAIN_CLASS_NAME" value="" />
     <option name="METHOD_NAME" value="" />
-    <option name="TEST_OBJECT" value="class" />
-    <dir value="$PROJECT_DIR$/src/test" />
+    <option name="TEST_OBJECT" value="directory" />
+    <dir value="$PROJECT_DIR$/src/test/java/com/gsrao" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>
