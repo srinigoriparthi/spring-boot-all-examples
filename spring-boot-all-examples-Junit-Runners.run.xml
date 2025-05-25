@@ -1,0 +1,14 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="spring-boot-all-examples-Junit-Runners" type="JUnit" factoryName="JUnit">
+    <module name="spring-boot-all-examples" />
+    <option name="ALTERNATIVE_JRE_PATH" value="D:\DEVWORK\DEVSOFTS\Java\jdk1.8.0_171\jre" />
+    <option name="PACKAGE_NAME" value="com.gsrao.service" />
+    <option name="MAIN_CLASS_NAME" value="com.gsrao.service.PersonServiceImplTest" />
+    <option name="METHOD_NAME" value="" />
+    <option name="TEST_OBJECT" value="class" />
+    <dir value="$PROJECT_DIR$/src/test" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
