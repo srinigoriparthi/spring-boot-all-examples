@@ -5,7 +5,7 @@ import com.gsrao.model.Person;
 import java.util.List;
 
 /**
- *  PersonService Interface
+ *  PersonService Interface PersonService
  */
 public interface PersonService {
 
