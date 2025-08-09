@@ -24,6 +24,10 @@ public class PersonRoutingControllerTest {
     @MockBean
     private PersonService personService;
 
+    /**
+     * Test for creating a person.
+     * @throws Exception
+     */
     @Test
     public void testCreatePerson() throws Exception {
         Person person = new Person();
