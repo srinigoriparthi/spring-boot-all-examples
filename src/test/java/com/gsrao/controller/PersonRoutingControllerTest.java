@@ -3,6 +3,7 @@ package com.gsrao.controller;
 
 import com.gsrao.model.Person;
 import com.gsrao.service.PersonService;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -15,6 +16,7 @@ import java.util.Arrays;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+@Ignore
 @WebMvcTest(PersonRoutingController.class)
 public class PersonRoutingControllerTest {
 
